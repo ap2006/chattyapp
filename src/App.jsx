@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
+import NavBar from './NavBar.jsx';
 import ChatBar from './ChatBar.jsx';
 import MessageList from './MessageList.jsx';
+
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       currentUser: { name: 'Anonymous' },
-      messages: []
+      messages: [],
+      users: 0
     };
   }
   // in App.jsx
@@ -37,9 +40,13 @@ componentDidMount() {
           console.log("Got a notification", parsed)// handle incoming notification
 
           break;
+          case "activeUsers":
+          this.setState( {users: parsed.count} )
+          break;
         default:
           // show an error in the console if the message type is unknown
           throw new Error("Unknown event type " + parsed.type);
+          //code to handle user count
         }
     }
 }
@@ -66,6 +73,7 @@ changeName = (namechange) => {
 render() {
     return (
       <div>
+        <NavBar userCount={this.state.users} />
         <MessageList messages={this.state.messages} />
           <ChatBar currentUser={this.state.currentUser} newMessage={this.addMessage} changeName={this.changeName} />
       </div>

@@ -32,14 +32,21 @@ wss.on('connection', (ws) => {
   ws.on("message", data => {
     // console.log("received a message %s", data);
     const messageObject = JSON.parse(data);
+    console.log(messageObject);
 
-    const msgToBroadcast = {
-      id: uuid(),
-      message: messageObject
-    };
-    console.log("Here is the message to broadcast", msgToBroadcast);
-
-    wss.broadcast(JSON.stringify(msgToBroadcast));
+    if (messageObject.type == "postNotification") {
+      messageObject["id"] = uuid();
+      console.log("Post Notification Received")
+      wss.broadcast(JSON.stringify(messageObject));
+    }
+    else {
+      const msgToBroadcast = {
+        id: uuid(),
+        message: messageObject,
+        type: "incomingMessage"
+      };
+      wss.broadcast(JSON.stringify(msgToBroadcast));
+    }
   });
     // console.log("Here is the message", messageObject.content);
 

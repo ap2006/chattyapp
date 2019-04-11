@@ -22,26 +22,45 @@ componentDidMount() {
   // get messages and
     this.socket.onmessage = (event) => {
       const parsed = JSON.parse(event.data)
-      console.log("Here is my message data", parsed);
-      const newMessage = {id: parsed.id, username: parsed.message.username, content: parsed.message.content};
-      const messages = this.state.messages.concat(newMessage)
-      this.setState({messages: messages})
   // code to handle incoming message
+      switch(parsed.type) {
+        case "incomingMessage":
+        const newMessage = {id: parsed.id, username: parsed.message.username, content: parsed.message.content};
+        const messages = this.state.messages.concat(newMessage)
+        this.setState({messages: messages})
+          console.log("Got incoming message")// handle incoming message
+          break;
+        case "postNotification":
+        const newNotification = {oldName: parsed.oldName, newName: parsed.newName, type: parsed.type, id: parsed.id};
+        const msgs = this.state.messages.concat(newNotification)
+        this.setState({messages: msgs})
+          console.log("Got a notification", parsed)// handle incoming notification
+
+          break;
+        default:
+          // show an error in the console if the message type is unknown
+          throw new Error("Unknown event type " + parsed.type);
+        }
     }
 }
 
-addMessage = (newMessage) => {
-  // console.log("App addMessage is being executed");
-  // console.log(message);
+addMessage = (content) => {
+  const newMessage = {content:content,
+    username:this.state.currentUser.name}
     this.socket.send(JSON.stringify(newMessage));
   // console.log(this);
 }
 
 // updates state IF user changes name (default is anonymous)
 
-changeName = (newName) => {
-      // console.log('fjdksfjdksalfjdksla', this.state.currentUser)
-      this.setState({currentUser: {name: newName}})
+changeName = (namechange) => {
+  console.log("we are here", namechange);
+  const newName = {oldName:this.state.currentUser.name,
+                  newName: namechange,
+                  type:"postNotification" }
+    this.socket.send(JSON.stringify(newName))
+    this.setState({currentUser: {name: namechange}})
+
   }
 
 render() {

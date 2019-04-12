@@ -28,21 +28,23 @@ componentDidMount() {
   // code to handle incoming message
       switch(parsed.type) {
         case "incomingMessage":
-        const newMessage = {id: parsed.id, username: parsed.message.username, content: parsed.message.content};
-        const messages = this.state.messages.concat(newMessage)
-        this.setState({messages: messages})
-          console.log("Got incoming message")// handle incoming message
-          break;
-        case "postNotification":
-        const newNotification = {oldName: parsed.oldName, newName: parsed.newName, type: parsed.type, id: parsed.id};
-        const msgs = this.state.messages.concat(newNotification)
-        this.setState({messages: msgs})
-          console.log("Got a notification", parsed)// handle incoming notification
+          const newMessage = {id: parsed.id, username: parsed.message.username, content: parsed.message.content};
 
-          break;
-          case "activeUsers":
+          const messagesOld = this.state.messages
+          messagesOld.push(newMessage)
+          console.log(messagesOld)
+          this.setState({messages: messagesOld})
+          console.log("Got incoming message")// handle incoming message
+        break;
+        case "postNotification":
+          const newNotification = {oldName: parsed.oldName, newName: parsed.newName, type: parsed.type, id: parsed.id};
+          const msgs = this.state.messages.concat(newNotification)
+          this.setState({messages: msgs})
+          console.log("Got a notification", parsed)// handle incoming notification
+        break;
+        case "activeUsers":
           this.setState( {users: parsed.count} )
-          break;
+        break;
         default:
           // show an error in the console if the message type is unknown
           throw new Error("Unknown event type " + parsed.type);

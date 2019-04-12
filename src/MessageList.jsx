@@ -9,6 +9,7 @@ class MessageList extends Component {
       <main className="messages">
         {
           this.props.messages.map((message) => {
+            console.log(message)
             if (message.type == "postNotification") {
               return (
                 <Notifications key={message.id} oldName={message.oldName} newName={message.newName} />

@@ -1,9 +1,9 @@
 h1 {
-  color: tomato;
+  color: #CF142B;
 }
 
 body {
-      background: white;
+      background: #E6CCB5;
       color: black;
       font-family: 'Open Sans', sans-serif;
       font-size: 14px;
@@ -11,7 +11,7 @@ body {
     }
 
     .chatbar {
-      background: tomato;
+      background: #FCC875;
       border-top: 1px solid black;
       bottom: 0;
       display: flex;
@@ -65,15 +65,30 @@ body {
       font-weight: 700;
     }
 
+    .notification-content {
+      padding-left: 20px;
+    }
+
     .navbar {
-      background: tomato;
+      background: #E38B75;
       border-bottom: 1px solid black;
-      height: 60px;
+      height: 100px;
       left: 0;
       padding: 0 10px;
       position: fixed;
       right: 0;
       top: 0;
+    }
+
+    .active-users {
+      float: right;
+    }
+
+    .logo {
+      float: left;
+      padding-top: 10px;
+      height: 75px;
+
     }
 
     .navbar-brand {
@@ -82,7 +97,7 @@ body {
       float: left;
       font-weight: 700;
       font-size: 28px;
-      height: 60px;
+      height: 100px;
       line-height: 60px;
       padding: 0 10px;
       text-decoration: none;

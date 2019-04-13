@@ -9,15 +9,12 @@ class ChatBar extends Component {
       this.props.changeName(event.target.value);
     }
   }
-
-//changes message that's being entered
+//if user enters a new message, it will be generated on hitting the ENTER key
   handleEnter = (e) => {
     if (e.key == "Enter") {
       this.props.newMessage(e.target.value);
-      // this.socket.send(JSON.stringify(this.state.messages[this.state.messages.length-1]));
     }
   };
-  //render
   render() {
     console.log(this.props);
     return (

@@ -53,7 +53,6 @@ body {
       padding: 5px 20px;
     }
 
-    .message-content,
     .message-username {
       overflow: hidden;
       margin: 5px;
@@ -71,6 +70,7 @@ body {
 
     .notification-content {
       padding-left: 20px;
+      font-style: italic;
     }
 
     .navbar {
@@ -92,7 +92,6 @@ body {
       float: left;
       padding-top: 10px;
       height: 75px;
-
     }
 
     .navbar-brand {

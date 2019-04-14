@@ -8,7 +8,7 @@ The Chatty Adele App contains a chat log displaying messages and notifications. 
 
 Chatty Adele App Homepage:
 
-![alt tag](https://github.com/ap2006/chattyapp/blob/master/docs/chatty_adele_app_no_chats.png "Chatty Adele App Homepage")
+
 
 
 

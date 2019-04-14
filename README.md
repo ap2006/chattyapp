@@ -1,45 +1,30 @@
-React Boilerplate
-=====================
+# Chatty Adele App
 
-A minimal and light dev environment for ReactJS.
+Chatty Adele App is a client-side SPA that allows Adele fans to send messages to each other online - no need to register accounts. It was built with React, as well as modern tools for Node including Webpack and Babel.
 
-### Usage
+The Chatty Adele App contains a chat log displaying messages and notifications. It also has an input field where a fan can change their name and a separate input field where a fan can send a message. The app communicates with a server via WebSockets for multi-user real-time updates. Adele fans who are online can see the total number of other fans online by checking the number in the top right corner.
 
-Clone the boilerplate and create your own git repo.
+##Screenshots
 
-```
-git clone git@github.com:lighthouse-labs/react-simple-boilerplate.git
-cd react-simple-boilerplate
-git remote rm origin
-git remote add origin [YOUR NEW REPOSITORY]
-# Manually update your package.json file
-```
 
-Install the dependencies and start the server.
+##Dependencies
 
-```
-npm install
-npm start
-open http://localhost:3000
-```
+Dependencies for the Chatty Client:
+- React
+- React-dom
+- Webpack
+- Babel
+- Express
+- Ws
 
-### Static Files
+Dependencies for the Chatty Server:
+- Express
+- UUID
+- Ws
 
-You can store static files like images, fonts, etc in the `build` folder.
-
-For example, if you copy a file called my_image.png into the build folder you can access it using `http://localhost:3000/build/my_image.png`.
-
-### Linting
-
-This boilerplate project includes React ESLint configuration.
-
-```
-npm run lint
-```
-
-### Dependencies
-
-* React
-* Webpack
-* [babel-loader](https://github.com/babel/babel-loader)
-* [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
+##How to use
+- Install all the above dependencies using the `npm install` command
+- Run the web server using the `npm start` command in the terminal while inside the correct folder directory (the client folder is 'chatty' and the server folder is inside chatty and called 'chatty_server').
+- Connect to localhost:3000 as a client
+- Open another browser and connect as a client. You should see the user count update on the top right.
+- Start chatting!

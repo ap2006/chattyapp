@@ -10,6 +10,9 @@ Chatty Adele App Homepage:
 
 !["Homepage on Load"](https://github.com/ap2006/chattyapp/blob/master/docs/chatty_adele_app_no_chats.png?raw=true)
 
+Chatty Adele App multi-fan Conversation:
+
+!["3 Adele Fans Chatting"](https://github.com/ap2006/chattyapp/blob/master/docs/chatty_adele_app_multiple_fans.png?raw=true)
 
 
 ## Dependencies

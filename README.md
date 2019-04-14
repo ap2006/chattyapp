@@ -4,10 +4,15 @@ Chatty Adele App is a client-side SPA that allows Adele fans to send messages to
 
 The Chatty Adele App contains a chat log displaying messages and notifications. It also has an input field where a fan can change their name and a separate input field where a fan can send a message. The app communicates with a server via WebSockets for multi-user real-time updates. Adele fans who are online can see the total number of other fans online by checking the number in the top right corner.
 
-##Screenshots
+## Screenshots
+
+Chatty Adele App Homepage:
+
+![alt tag](https://github.com/ap2006/chattyapp/blob/master/docs/chatty_adele_app_no_chats.png "Chatty Adele App Homepage")
 
 
-##Dependencies
+
+## Dependencies
 
 Dependencies for the Chatty Client:
 - React
@@ -22,7 +27,7 @@ Dependencies for the Chatty Server:
 - UUID
 - Ws
 
-##How to use
+## How to use
 - Install all the above dependencies using the `npm install` command
 - Run the web server using the `npm start` command in the terminal while inside the correct folder directory (the client folder is 'chatty' and the server folder is inside chatty and called 'chatty_server').
 - Connect to localhost:3000 as a client
